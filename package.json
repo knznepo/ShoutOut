@@ -1,6 +1,7 @@
 {
   "name": "shoutout",
   "version": "0.1.0",
+  "homepage": "https://knznepo.github.io/ShoutOut",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
