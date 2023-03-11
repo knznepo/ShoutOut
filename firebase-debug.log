@@ -1,0 +1,57 @@
+[debug] [2023-03-10T17:24:24.655Z] ----------------------------------------------------------------------
+[debug] [2023-03-10T17:24:24.656Z] Command:       /Users/knz/.nvm/versions/node/v14.19.3/bin/node /Users/knz/.nvm/versions/node/v14.19.3/bin/firebase init hosting:github
+[debug] [2023-03-10T17:24:24.656Z] CLI Version:   11.20.0
+[debug] [2023-03-10T17:24:24.656Z] Platform:      darwin
+[debug] [2023-03-10T17:24:24.656Z] Node Version:  v14.19.3
+[debug] [2023-03-10T17:24:24.657Z] Time:          Sat Mar 11 2023 01:24:24 GMT+0800 (Philippine Standard Time)
+[debug] [2023-03-10T17:24:24.657Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-03-10T17:24:24.714Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-03-10T17:24:24.715Z] > authorizing via signed-in user (kenaznepomuceno@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  /Users/knz/Sites/shoutout
+
+Before we get started, keep in mind:
+
+  * You are initializing within an existing Firebase project directory
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2023-03-10T17:24:24.718Z] Using project from CLI flag: shoutout-46a59
+[debug] [2023-03-10T17:24:24.720Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/shoutout-46a59 [none]
+[debug] [2023-03-10T17:24:25.164Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/shoutout-46a59 200
+[debug] [2023-03-10T17:24:25.164Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/shoutout-46a59 {"projectId":"shoutout-46a59","projectNumber":"346786330316","displayName":"Shoutout","name":"projects/shoutout-46a59","resources":{"hostingSite":"shoutout-46a59"},"state":"ACTIVE","etag":"1_3e5ade88-d677-474f-b3e3-eba5de0bc487"}
+[info] i  Using project shoutout-46a59 (Shoutout) 
+[info] 
+=== Hosting:github Setup
+[info] 
+[info] i  Detected a .git folder at /Users/knz/Sites/shoutout 
+[info] i  Authorizing with GitHub to upload your service account to a GitHub repository's secrets store. 
+[info] 
+[info] Visit this URL on this device to log in:
+[info] https://github.com/login/oauth/authorize?client_id=89cf50f02ac6aaed3484&state=76997306&redirect_uri=http%3A%2F%2Flocalhost%3A9005&scope=read%3Auser%20repo%20public_repo
+[info] 
+[info] Waiting for authentication...
+[debug] [2023-03-10T17:24:26.332Z] >>> [apiv2][query] POST https://github.com/login/oauth/access_token [none]
+[debug] [2023-03-10T17:24:26.333Z] >>> [apiv2][body] POST https://github.com/login/oauth/access_token [stream]
+[debug] [2023-03-10T17:24:27.104Z] <<< [apiv2][status] POST https://github.com/login/oauth/access_token 200
+[debug] [2023-03-10T17:24:27.105Z] <<< [apiv2][body] POST https://github.com/login/oauth/access_token {"access_token":"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","token_type":"bearer","scope":"read:user,repo"}
+[debug] [2023-03-10T17:24:27.122Z] >>> [apiv2][query] GET https://api.github.com/user [none]
+[debug] [2023-03-10T17:24:27.666Z] <<< [apiv2][status] GET https://api.github.com/user 200
+[debug] [2023-03-10T17:24:27.667Z] <<< [apiv2][body] GET https://api.github.com/user {"login":"knznepo","id":3214100,"node_id":"MDQ6VXNlcjMyMTQxMDA=","avatar_url":"https://avatars.githubusercontent.com/u/3214100?v=4","gravatar_id":"","url":"https://api.github.com/users/knznepo","html_url":"https://github.com/knznepo","followers_url":"https://api.github.com/users/knznepo/followers","following_url":"https://api.github.com/users/knznepo/following{/other_user}","gists_url":"https://api.github.com/users/knznepo/gists{/gist_id}","starred_url":"https://api.github.com/users/knznepo/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/knznepo/subscriptions","organizations_url":"https://api.github.com/users/knznepo/orgs","repos_url":"https://api.github.com/users/knznepo/repos","events_url":"https://api.github.com/users/knznepo/events{/privacy}","received_events_url":"https://api.github.com/users/knznepo/received_events","type":"User","site_admin":false,"name":"Kenaz","company":"World Mission Communication Asia-Pacific","blog":"knznepo.github.io","location":"Philippines","email":"kenaznepomuceno@yahoo.com","hireable":true,"bio":null,"twitter_username":null,"public_repos":8,"public_gists":0,"followers":3,"following":3,"created_at":"2013-01-08T08:50:20Z","updated_at":"2023-03-10T16:40:06Z","private_gists":0,"total_private_repos":2,"owned_private_repos":2,"disk_usage":9454,"collaborators":0,"two_factor_authentication":false,"plan":{"name":"free","space":976562499,"collaborators":0,"private_repos":10000}}
+[info] 
+[info] ✔  Success! Logged into GitHub as knznepo 
+[info] 
