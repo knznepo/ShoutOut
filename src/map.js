@@ -10,7 +10,7 @@ const { Overlay } = LayersControl;
 // Render Shoutouts 
 const Shoutouts = ({ myPosition }) => {
     const [shoutOuts, setShoutOuts] = useState([])
-    const [readyShoutOut, setReadyShoutOut] = useState(false)
+    const [readyShoutOut, setReadyShoutOut] = useState(false)   
 
     useEffect(() => {
         loadShoutOuts()
@@ -28,6 +28,7 @@ const Shoutouts = ({ myPosition }) => {
                     position: [doc.data().position[0], doc.data().position[1]],
                     myPosition: myPosition,
                     comments: doc.data().comments,
+                    // comment: true,
                     editable: false
                 }))
             )

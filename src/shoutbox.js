@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import { Popup } from 'react-leaflet'
 import {db, uniqueID} from './db'
-import {collection, setDoc, updateDoc, arrayUnion, doc, Timestamp} from 'firebase/firestore'
+import {collection, setDoc, updateDoc, arrayUnion, doc, query, where, getDoc, onSnapshot, Timestamp, querySnapshot} from 'firebase/firestore'
 
 export const ShoutForm = ({ sendTextToParent, position, shoutText }) => {
     const [text, setText] = useState('')
@@ -87,15 +87,24 @@ export const ShoutBox = ({ shout, position }) => {
 
     useEffect(() => {
         setComments(shout.comments)
+        // setComments([])
     },[])
-
+    
     const handleForm = (text) => {
         setShoutOut(text)
     }
 
     const handleComment = (comment) => {
         // dispaly new comment
-        setComments([...comments, comment])
+        // setComments([...comments, comment])
+
+        // if ( shout.id ) {
+            const q = query(collection(db, 'shouts'), where('position','==',position))
+
+            onSnapshot(q, (querySnapshot) => {
+                setComments(querySnapshot.docs[0].data().comments)
+            })
+        // }
     }
     
     const handleScroll = (e) => {
@@ -109,7 +118,7 @@ export const ShoutBox = ({ shout, position }) => {
     }
 
     const shoutForm = (shout.editable) ? <ShoutForm sendTextToParent={handleForm} position={position} shoutText={shout.text}/>  : <h1 className="shoutout-display">{shout.text}</h1>        
-    const commentForm = (shout.comments) ? <CommentForm sendCommentToParent={handleComment} shoutId={shout.id}/> : ''
+    const commentForm = (shout.text) ? <CommentForm sendCommentToParent={handleComment} shoutId={shout.id}/> : ''
 
     let commentSection = ''
     let commentFeed = ''
@@ -120,7 +129,7 @@ export const ShoutBox = ({ shout, position }) => {
                 <ul>
                     {comments.map((comment, index) => (
                         <li key={index}>
-                            <div class="comment-wrapper">
+                            <div className="comment-wrapper">
                                 {comment.text}
                             </div>
                         </li>
@@ -129,7 +138,7 @@ export const ShoutBox = ({ shout, position }) => {
             </div>
     }
 
-    if ( !shout.disableComment ) {
+    if ( shout.text ) {
         commentSection = 
             <div className="comment-section">
                 <h4>Comments</h4>

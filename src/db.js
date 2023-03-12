@@ -2,9 +2,6 @@ import { initializeApp } from 'firebase/app'
 import { getFirestore } from 'firebase/firestore'
 import { getAnalytics } from 'firebase/analytics'
 
-import {collection, query, orderBy, onSnapshot} from 'firebase/firestore'
-
-
 // configure firebase
 const firebaseConfig = {
     apiKey: "AIzaSyAf5qLPF1G6fig39ES6QnMyFhNvCUe_bps",
@@ -30,14 +27,5 @@ const analytics = getAnalytics(app)
 
 // initialize firestore
 export const db = getFirestore(app)
-
-// const shouts = collection(db, 'shouts')
-
-// setDoc(doc(shouts, 'posts-0'), {
-//     text: 'my first post',
-//     location: [14.566893,121.1433185]
-// })
-
-
 
 export default db

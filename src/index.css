@@ -16,6 +16,7 @@ textarea {
     border-color: #ccc;
     margin-right: 0;
     padding: 5.5px;
+    resize: none;
 }
 
 .hide {
