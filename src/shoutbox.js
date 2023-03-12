@@ -84,7 +84,7 @@ export const ShoutBox = ({ shout, position }) => {
     // const [shoutOut, setShoutOut] = useState('')
     const [comments, setComments] = useState([])
     const [atBottom, setAtBottom] = useState(false)
-    const commentFeed = document.querySelectorAll('.comment-feed')[0]
+    const commentFeedDiv = document.querySelectorAll('.comment-feed')[0]
     
     useEffect(() => {
         setComments(shout.comments)
@@ -96,13 +96,11 @@ export const ShoutBox = ({ shout, position }) => {
 
     const handleComment = (comment) => {
         // dispaly new comment
-        // setComments([...comments, comment])
-
         const q = query(collection(db, 'shouts'), where('position','==',position))
 
         onSnapshot(q, (querySnapshot) => {
             setComments(querySnapshot.docs[0].data().comments)
-            commentFeed.scrollTop = commentFeed.scrollHeight
+            commentFeedDiv.scrollTop = commentFeedDiv.scrollHeight
         })
     }
     
