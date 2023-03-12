@@ -2,7 +2,7 @@ import React, {useEffect, useState, useRef} from 'react'
 import { MapContainer, TileLayer, Marker, LayersControl, LayerGroup } from 'react-leaflet'
 import { ShoutBox } from './shoutbox'
 import db from './db'
-import {collection, addDoc, Timestamp, query, orderBy, onSnapshot} from 'firebase/firestore'
+import {collection, query, onSnapshot} from 'firebase/firestore'
 import Header from './header'
 
 const { Overlay } = LayersControl;

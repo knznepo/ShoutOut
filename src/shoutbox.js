@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import { Popup } from 'react-leaflet'
 import {db, uniqueID} from './db'
-import {collection, setDoc, updateDoc, arrayUnion, doc, query, where, getDoc, onSnapshot, Timestamp, querySnapshot} from 'firebase/firestore'
+import {collection, setDoc, updateDoc, arrayUnion, doc, query, where, onSnapshot, Timestamp} from 'firebase/firestore'
 
 export const ShoutForm = ({ sendTextToParent, position, shoutText }) => {
     const [text, setText] = useState('')
@@ -81,30 +81,29 @@ const CommentForm = ({ sendCommentToParent, shoutId }) => {
 }
 
 export const ShoutBox = ({ shout, position }) => {
-    const [shoutOut, setShoutOut] = useState('')
+    // const [shoutOut, setShoutOut] = useState('')
     const [comments, setComments] = useState([])
     const [atBottom, setAtBottom] = useState(false)
-
+    const commentFeed = document.querySelectorAll('.comment-feed')[0]
+    
     useEffect(() => {
         setComments(shout.comments)
-        // setComments([])
     },[])
     
     const handleForm = (text) => {
-        setShoutOut(text)
+        // setShoutOut(text)
     }
 
     const handleComment = (comment) => {
         // dispaly new comment
         // setComments([...comments, comment])
 
-        // if ( shout.id ) {
-            const q = query(collection(db, 'shouts'), where('position','==',position))
+        const q = query(collection(db, 'shouts'), where('position','==',position))
 
-            onSnapshot(q, (querySnapshot) => {
-                setComments(querySnapshot.docs[0].data().comments)
-            })
-        // }
+        onSnapshot(q, (querySnapshot) => {
+            setComments(querySnapshot.docs[0].data().comments)
+            commentFeed.scrollTop = commentFeed.scrollHeight
+        })
     }
     
     const handleScroll = (e) => {
